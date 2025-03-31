@@ -9,6 +9,6 @@ export const Heading = ({ number=1, children }) => {
   return <Tag>{children}</Tag>
 }
 
-export const Container = ({children, className = "",id}) => {
-  return <div className={`${className}`}id={id}>{children}</div>
+export const Div = ({children, className = "",id}) => {
+  return <div className={className} id={id}>{children}</div>
 }
