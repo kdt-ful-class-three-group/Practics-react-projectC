@@ -1,36 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Div, Heading } from "./Tag";
 import { Button } from "./Button";
 
-export class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0,
-    };
-  }
-  changeCount = (amount) => {
-    this.setState((prevState) => ({
-      count: prevState.count + amount,
-    }));
-  };
-  render() {
-    return (
-      <Div className="counter">
-        <Div>카운트</Div>
+export const Counter = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <Div className="counter">
+      <Div>카운트</Div>
         
-        <Heading>{this.state.count}</Heading>
-        
-        <Div>
-          <Button btnName={-100} onClick={this.changeCount} />
-          <Button btnName={-10} onClick={this.changeCount} />
-          <Button btnName={-1} onClick={this.changeCount} />
-          <Button btnName={+1} onClick={this.changeCount} />
-          <Button btnName={+10} onClick={this.changeCount} />
-          <Button btnName={+100} onClick={this.changeCount} />
-        </Div>
-      </Div>
-    )
+      <Heading>{count}</Heading>
 
-  }
+      <Div>
+        <Button btnName={-100} onClick={()=> setCount(count - 100)} />
+        <Button btnName={-10} onClick={()=> setCount(count - 10)} />
+        <Button btnName={-1} onClick={()=> setCount(count - 1)} />
+        <Button btnName={+1} onClick={()=> setCount(count + 1)} />
+        <Button btnName={+10} onClick={()=> setCount(count + 10)} />
+        <Button btnName={+100} onClick={()=> setCount(count + 100)} />
+      </Div>
+    </Div>
+  )
 }
+ 
