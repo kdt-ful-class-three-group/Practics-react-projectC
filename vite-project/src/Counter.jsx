@@ -7,11 +7,11 @@ class Counter extends Component {
   }
 
   addCount = () => {
-    this.setState({count:this.state.count+1}) //state 변경
+    this.setState(prevState => ({count:prevState.count+1})) //state 변경
   }
 
   minusCount = () => {
-    this.setState({count:Math.max(this.state.count -1, 0)})// 0보다 작으면 0이 할당됨
+    this.setState(prevState => ({count:Math.max(prevState.count -1, 0)}))// 0보다 작으면 0이 할당됨
   }
 
   render() {
