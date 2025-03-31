@@ -1,3 +1,5 @@
+import React, {Component} from 'react'
+
 function Counter() {
   let count = 0
 
