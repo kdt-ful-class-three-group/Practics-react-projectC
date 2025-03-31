@@ -1,28 +1,10 @@
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import './App.css'
-import Counter from './Counter'
+import Counter from './Counter' //카운터 페이지
 
 
 function App() {
-  let count = 0
-
-  function addCount() {
-    count += 1
-    document.getElementsByTagName('h1')[0].innerHTML=count
-  }
-  function minusCount() {
-    count -= 1
-    if (count < 0) {
-      count = 0
-    }
-    document.getElementsByTagName('h1')[0].innerHTML=count
-  }
   
-  return <div>
-    <h1>{count}</h1>
-    <button onClick={addCount}>+</button>
-    <button onClick={minusCount}>-</button>
-  </div>
 }
 
 export default App
