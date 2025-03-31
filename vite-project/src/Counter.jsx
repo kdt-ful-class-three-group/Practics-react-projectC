@@ -1,4 +1,11 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+
+class Counter extends Component {
+  constructor(props) {
+    super(props)
+    this.count = 0
+  }
+}
 
 function Counter() {
   let count = 0
