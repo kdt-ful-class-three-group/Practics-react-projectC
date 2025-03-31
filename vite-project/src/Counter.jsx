@@ -3,29 +3,23 @@ import React, { Component } from 'react'
 class Counter extends Component {
   constructor(props) {
     super(props)
-    this.count = 0
+    this.state = {count:0} // count를 state로 관리
   }
 
   addCount = () => {
-    this.count += 1;
-    this.forceUpdate() //강제 화면 갱신
+    this.setState({count:this.state.count+1}) //state 변경
   }
 
   minusCount = () => {
-    this.count -= 1
-    
-    if (this.count < 0) {
-      this.count = 0
-    }
-    this.forceUpdate()//강제 화면 갱신
+    this.setState({count:Math.max(this.state.count -1, 0)})// 0보다 작으면 0이 할당됨
   }
 
   render() {
     return (
       <div>
-        <h1>{count}</h1>
-        <button onClick={addCount}>+</button>
-        <button onClick={minusCount}>-</button>
+        <h1>{this.state.count}</h1>
+        <button onClick={this.addCount}>+</button>
+        <button onClick={this.minusCount}>-</button>
       </div>)
   }
 }
