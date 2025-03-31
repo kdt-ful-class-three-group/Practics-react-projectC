@@ -5,28 +5,29 @@ class Counter extends Component {
     super(props)
     this.count = 0
   }
-}
 
-function Counter() {
-  let count = 0
-
-  function addCount() {
-    count += 1
-    document.getElementsByTagName('h1')[0].innerHTML=count
+  addCount = () => {
+    this.count += 1;
+    this.forceUpdate() //강제 화면 갱신
   }
-  function minusCount() {
-    count -= 1
-    if (count < 0) {
-      count = 0
+
+  minusCount = () => {
+    this.count -= 1
+    
+    if (this.count < 0) {
+      this.count = 0
     }
-    document.getElementsByTagName('h1')[0].innerHTML=count
+    this.forceUpdate()//강제 화면 갱신
   }
-  
-  return <div>
-    <h1>{count}</h1>
-    <button onClick={addCount}>+</button>
-    <button onClick={minusCount}>-</button>
-  </div>
+
+  render() {
+    return (
+      <div>
+        <h1>{count}</h1>
+        <button onClick={addCount}>+</button>
+        <button onClick={minusCount}>-</button>
+      </div>)
+  }
 }
 
 export default Counter
